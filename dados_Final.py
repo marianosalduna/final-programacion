@@ -1,17 +1,17 @@
 import random
 
-def tirar_dados(numero_tiros):
+def tirar_dados(numero_tiros):        #La funcion de arrojar un resultado aleatorio entre 2 valores desde la biblioteca "random"
     resultados = []
     for _ in range(numero_tiros):
         resultado = random.randint(1, 6)
         resultados.append(resultado)
     return resultados
 
-def obtener_resultados_jugadores(jugadores, numero_tiros):
+def obtener_resultados_jugadores(jugadores, numero_tiros):       #Para solicitar el nombre de los jugadores
     resultados_jugadores = []
     for i in range(jugadores):
         nombre = input(f"Ingrese el nombre del jugador {i + 1}: ")
-        resultados = tirar_dados(numero_tiros)
+        resultados = tirar_dados(numero_tiros)        #Para que todos los jugadores tengan la misma cantidad de tiradas
         resultados_jugadores.append((nombre, resultados))
     return resultados_jugadores
 
@@ -33,7 +33,7 @@ def determinar_ganador(resultados_jugadores):
     
     return ganador, max_puntaje
 
-def jugar():
+def jugar():        #En esta función se llama a las demas funciones auxiliares en el orden correcto para que funcione el "juego"
     jugadores = int(input("Ingrese el número de jugadores: "))
     numero_tiros = int(input("Ingrese el número de tiros para todos los jugadores: "))
     resultados_jugadores = obtener_resultados_jugadores(jugadores, numero_tiros)
